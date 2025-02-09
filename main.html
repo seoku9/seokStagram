@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD@400,0,0"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./insta.css" />
+    <link rel="stylesheet" href="./story.css" />
+    <link rel="stylesheet" href="./feed.css" />
+    <link rel="stylesheet" href="./number.css" />
+
+    <script src="./insta.js"></script>
+    <script src="./router.js"></script>
+
+    <script>
+      window.onload = function () {
+        // 페이지가 로드될 때 주소를 '/main.html'에서 '/'로 변경
+        if (window.location.pathname === "/main.html") {
+          window.history.pushState({}, "", "/");
+          // main.html에서 '/'로 이동하면 해당 콘텐츠를 로드할 수 있습니다.
+          loadHomePage();
+        }
+
+        function loadHomePage() {
+          document.body.innerHTML = "<h1>Welcome to the Home Page</h1>";
+        }
+      };
+    </script>
+    <style>
+      html {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      body {
+        width: 480px;
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .iconBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      <div class="instaText">
+        <p style="font-family: Oswald, serif">Seokstagram</p>
+      </div>
+      <div class="iconBox">
+        <span
+          class="material-symbols-outlined"
+          id="toggleOverlayBtn"
+          style="color: black; padding-left: 4px"
+        >
+          near_me
+        </span>
+      </div>
+    </div>
+    <div class="body">
+      <div id="infoOVerlay" class="infoOVerlay">
+        <div class="story">
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="icon">📞</div>
+              <div class="text">010-9898-1590</div>
+            </div>
+            <div class="contact-item">
+              <div class="icon">✉️</div>
+              <div class="text">sukkoo777@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="./img/profile.jpg" class="homeAvatar" />
+      <div id="posts-container"></div>
+      <div class="overlay">
+        <div class="story">
+          <div class="story-slide" id="story-1">
+            <img src="./img/instafirststory.png" alt="" />
+          </div>
+          <div class="story-slide" id="story-2">
+            <div class="techStack">
+              <h1>Tech Stack</h1>
+            </div>
+            <div>
+              <div class="skillContainer">
+                <div class="skill-tag">React.js</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">TypeScript</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">Styled-Component</div>
+              </div>
+            </div>
+          </div>
+          <div class="story-slide" id="story-3">
+            <div class="container">
+              <div class="section">
+                <h2>커뮤니케이션 능력</h2>
+                <p>
+                  모든 업무는 커뮤니케이션부터 시작됩니다. 저는 커뮤니케이션
+                  능력을 바탕으로 효과적인 대화와 정보 교환을 위해 노력합니다.
+                </p>
+              </div>
+
+              <div class="section">
+                <h2>개발 작업에서의 가치관</h2>
+                <p>
+                  현재는 개발 작업을 수행할 때에도 일관된 가치관을 유지하고
+                  있습니다. 유저의 입장을 이해하고 고민하고 분석하여 UI/UX
+                  친화적인 제품을 만들기 위해 노력하고 있습니다.
+                </p>
+              </div>
+
+              <div class="section">
+                <h2>속도보다는 방향</h2>
+                <p>
+                  저는 속력보다는 방향이 중요하다는 생각을 가지고 살아왔습니다.
+                  하지만 이젠 그동안의 경험과 노력을 토대로 속도를 내어 적합한
+                  인재가 되고자 합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          <button class="next-btn" id="next-btn">Next</button>
+        </div>
+        <div class="storyHeader">
+          <div class="profile">
+            <img src="./img/profile.jpg" alt="Profile" />
+            <span class="username">김석우</span>
+          </div>
+          <span
+            class="material-symbols-outlined close-btn"
+            style="padding-right: 8px"
+            >close</span
+          >
+        </div>
+        <div class="dmContainer">
+          <span class="material-symbols-outlined emoji">mood</span>
+          <input
+            type="text"
+            class="dmInput"
+            placeholder="새로움을 추구하는 프론트엔드 개발자 김석우입니다."
+          />
+          <span class="material-symbols-outlined send-btn">send</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="./story.js"></script>
+    <script src="./feed.js"></script>
+    <script></script>
+  </body>
+</html>

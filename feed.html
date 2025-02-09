@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포트폴리오 상세 보기</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .portfolio-container {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .portfolio-header {
+        text-align: center;
+      }
+
+      .portfolio-header h1 {
+        font-size: 28px;
+        margin: 10px 0;
+      }
+
+      .portfolio-description {
+        margin: 20px 0;
+        line-height: 1.6;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .tech-item {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .tech-item:hover {
+        background-color: #0056b3;
+      }
+      /* 투명한 배경과 테두리 */
+      .back-button {
+        background-color: transparent;
+        color: #ff5733; /* 오렌지 색상 */
+        font-size: 16px;
+        padding: 12px 24px;
+        border: 2px solid #ff5733;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      /* 호버 효과 */
+      .back-button:hover {
+        background-color: #ff5733;
+        color: white; /* 텍스트 색상 */
+      }
+    </style>
+    <script>
+      function loadProjectData() {
+        // sessionStorage에서 프로젝트 데이터를 가져오기
+        const data = sessionStorage.getItem("userData");
+
+        if (data) {
+          const projectData = JSON.parse(data);
+
+          // // 프로젝트 이름과 설명을 동적으로 설정
+          document.getElementById("projectName").innerText =
+            projectData.projectName;
+          document.getElementById("projectSubtitle").innerText =
+            projectData.projectName + " - Seokwookim"; // 원하는 형식으로 수정
+          document.getElementById("projectDescription").innerText =
+            projectData.projectDescription;
+          for (let i = 0; i < projectData.projectImages.length; i++) {
+            const projectImage = document.createElement("img");
+            projectImage.src = projectData.projectImages[i];
+            console.log(projectData.projectImages[i]);
+            projectImage.alt = "Project Image"; // 이미지 대체 텍스트
+            projectImage.style.maxWidth = "100%"; // 최대 너비 설정
+            projectImage.style.paddingBottom = "24px"; // 최대 너비 설정
+            // projectImage.style.height = "240px"; // 이미지 크기 조정 (필요에 따라 조정)
+            document
+              .getElementById("projectImageContainer")
+              .appendChild(projectImage); // 이미지 컨테이너에 추가
+          }
+
+          const techStackContainer =
+            document.getElementById("techStackContainer");
+          projectData.techStack.forEach((tech) => {
+            const techItem = document.createElement("div");
+
+            techItem.classList.add("tech-item");
+            techItem.innerText = tech;
+            if (tech === "React") {
+              techItem.style.backgroundColor = "blue"; // React일 경우 파란색으로
+            } else if (tech === "javascript") {
+              techItem.style.backgroundColor = "yellow"; // JavaScript일 경우 노란색으로
+            } else if (tech === "css") {
+              techItem.style.backgroundColor = "sky blue"; // 기본 색상
+            } else techItem.style.backgroundColor = "black"; // 기본 색상
+            techStackContainer.appendChild(techItem);
+          });
+        }
+      }
+
+      window.onload = loadProjectData;
+    </script>
+  </head>
+  <body>
+    <div class="portfolio-container">
+      <div class="portfolio-header">
+        <h1 id="projectName"></h1>
+        <p><strong id="projectSubtitle"></strong></p>
+      </div>
+
+      <div class="portfolio-description">
+        <p id="projectDescription"></p>
+      </div>
+      <div id="projectImageContainer"></div>
+
+      <h3>사용한 기술 스택</h3>
+      <div class="tech-stack" id="techStackContainer">
+        <!-- 기술 스택 항목들이 동적으로 들어갈 부분 -->
+      </div>
+
+      <a href="./main.html" class="back-btn">⬅️ 돌아가기</a>
+    </div>
+  </body>
+</html>

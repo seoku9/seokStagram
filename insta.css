@@ -1,0 +1,162 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* 완전 검은색 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0; /* 기본적으로 숨김 */
+  pointer-events: none; /* 클릭 방지 */
+  transition: opacity 0.5s ease-in-out;
+  border: 2px solid white;
+}
+.licenseOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* 완전 검은색 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0; /* 기본적으로 숨김 */
+  pointer-events: none; /* 클릭 방지 */
+  transition: opacity 0.5s ease-in-out;
+  border: 2px solid white;
+}
+
+/* 스토리 박스 */
+.story {
+  width: 480px;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.1); /* 반투명 흰색 */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-size: 24px;
+  border-radius: 20px;
+}
+
+.homeAvatar {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 10px;
+}
+
+.storyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+  width: 480px;
+
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+}
+.profile {
+  display: flex;
+  align-items: center;
+}
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 10px;
+}
+.username {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+.skill-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 20px;
+  background-color: #007acc;
+  color: white;
+  display: inline-block;
+}
+
+.skill-tag:nth-child(2) {
+  background-color: #f7df1e;
+  color: #000;
+} /* JavaScript */
+.skill-tag:nth-child(3) {
+  background-color: #3178c6;
+} /* TypeScript */
+.skill-tag:nth-child(4) {
+  background-color: #264de4;
+} /* CSS */
+.skill-tag:nth-child(5) {
+  background-color: #db7093;
+}
+
+/* 닫기 버튼 (X) */
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.dmContainer {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+/* 입력창 */
+.dmInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+  outline: none;
+}
+
+/* 아이콘 (이모티콘 & 전송 버튼) */
+.material-symbols-outlined {
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* 전송 버튼 스타일 */
+.send-btn {
+  font-size: 28px;
+}
